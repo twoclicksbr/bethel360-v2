@@ -2,24 +2,27 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
      * Seed the application's database.
+     *
+     * Este seeder detecta automaticamente se está rodando no contexto central ou tenant
+     * e executa os seeders apropriados.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Se estamos em contexto de tenant, executar TenantSeeder
+        if (tenancy()->initialized) {
+            $this->call([
+                TenantSeeder::class,
+            ]);
+            return;
+        }
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Banco central: você pode popular dados centrais aqui se necessário
+        // Exemplo: criar tenants de teste, domínios, etc.
     }
 }

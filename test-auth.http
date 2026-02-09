@@ -1,0 +1,42 @@
+### 1. REGISTRAR NOVO USUÁRIO
+POST https://beth1.bethel360-api.test/api/v2/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "first_name": "João",
+  "last_name": "Silva",
+  "email": "joao@exemplo.com",
+  "password": "senha123",
+  "password_confirmation": "senha123",
+  "gender_id": 1,
+  "birth_date": "1990-05-15"
+}
+
+###
+
+### 2. LOGIN
+POST https://beth1.bethel360-api.test/api/v2/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "joao@exemplo.com",
+  "password": "senha123"
+}
+
+###
+
+### 3. LOGOUT (substitua YOUR_TOKEN pelo token recebido no login)
+POST https://beth1.bethel360-api.test/api/v2/auth/logout
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN
+
+###
+
+### 4. HEALTH CHECK (rota pública)
+GET https://beth1.bethel360-api.test/api/v2/health
+Accept: application/json
+
+###

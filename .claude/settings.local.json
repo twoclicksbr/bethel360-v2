@@ -3,7 +3,18 @@
     "allow": [
       "Bash(git init:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(composer require:*)",
+      "Bash(php -v:*)",
+      "Bash(~/.config/herd/bin/php.bat:*)",
+      "Bash(php artisan make:migration:*)",
+      "Bash(ls:*)",
+      "Bash(PGPASSWORD='Millena2012@' psql:*)",
+      "Bash(test:*)",
+      "Bash(/c/Users/alexa/.config/herd/bin/php.bat:*)"
     ]
   }
 }

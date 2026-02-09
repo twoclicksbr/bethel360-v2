@@ -1,0 +1,256 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-02-09T20:05:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_1",
+      "parentId": "fld_auth",
+      "modified": 1707512700000,
+      "created": 1707512700000,
+      "url": "{{ _.base_url }}/auth/register",
+      "name": "1. Register - Registrar Novo Usuário",
+      "description": "Cria uma nova Person + User no tenant.\nAceita tanto `first_name` + `last_name` quanto `name`.",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"first_name\": \"João\",\n  \"last_name\": \"Silva\",\n  \"email\": \"joao.silva@exemplo.com\",\n  \"password\": \"senha123\",\n  \"password_confirmation\": \"senha123\",\n  \"gender_id\": 1,\n  \"birth_date\": \"1990-05-15\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1707512700000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2",
+      "parentId": "fld_auth",
+      "modified": 1707512800000,
+      "created": 1707512800000,
+      "url": "{{ _.base_url }}/auth/login",
+      "name": "2. Login - Autenticar",
+      "description": "Autentica com email e senha.\nRetorna token Sanctum para usar nas requisições autenticadas.",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"joao.silva@exemplo.com\",\n  \"password\": \"senha123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1707512800000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3",
+      "parentId": "fld_auth",
+      "modified": 1707512900000,
+      "created": 1707512900000,
+      "url": "{{ _.base_url }}/auth/logout",
+      "name": "3. Logout - Revogar Token",
+      "description": "Revoga o token atual.\nRequer autenticação via Bearer Token.",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.auth_token }}"
+      },
+      "metaSortKey": -1707512900000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_4",
+      "parentId": "fld_auth",
+      "modified": 1707513000000,
+      "created": 1707513000000,
+      "url": "{{ _.base_url }}/auth/forgot-password",
+      "name": "4. Forgot Password - Recuperar Senha",
+      "description": "Solicita recuperação de senha (placeholder para ETAPA 2).",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"joao.silva@exemplo.com\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1707513000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5",
+      "parentId": "fld_public",
+      "modified": 1707513100000,
+      "created": 1707513100000,
+      "url": "{{ _.base_url }}/health",
+      "name": "Health Check",
+      "description": "Verifica se a API está respondendo.\nRota pública, não requer autenticação.",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1707513100000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_auth",
+      "parentId": "wrk_bethel360",
+      "modified": 1707512600000,
+      "created": 1707512600000,
+      "name": "Auth - Autenticação",
+      "description": "Endpoints de autenticação (Register, Login, Logout)",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1707512600000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_public",
+      "parentId": "wrk_bethel360",
+      "modified": 1707512500000,
+      "created": 1707512500000,
+      "name": "Public - Rotas Públicas",
+      "description": "Rotas que não requerem autenticação",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1707512500000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_bethel360",
+      "parentId": null,
+      "modified": 1707512400000,
+      "created": 1707512400000,
+      "name": "Bethel360° API - ETAPA 1",
+      "description": "API completa para gestão de igrejas\nTenant: beth1\nDomínio: beth1.bethel360-api.test",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_base",
+      "parentId": "wrk_bethel360",
+      "modified": 1707512450000,
+      "created": 1707512450000,
+      "name": "Base Environment",
+      "data": {
+        "base_url": "https://beth1.bethel360-api.test/api/v2",
+        "auth_token": "",
+        "tenant_slug": "beth1"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url",
+          "auth_token",
+          "tenant_slug"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1707512450000,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_production",
+      "parentId": "env_base",
+      "modified": 1707512460000,
+      "created": 1707512460000,
+      "name": "Production",
+      "data": {
+        "base_url": "https://{{ _.tenant_slug }}.bethel360.com.br/api/v2",
+        "auth_token": "",
+        "tenant_slug": "sua-igreja"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url",
+          "auth_token",
+          "tenant_slug"
+        ]
+      },
+      "color": "#ff0000",
+      "isPrivate": false,
+      "metaSortKey": 1707512460000,
+      "_type": "environment"
+    }
+  ]
+}
