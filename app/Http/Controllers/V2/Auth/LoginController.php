@@ -39,7 +39,7 @@ class LoginController extends Controller
 
         // Se User não existe, verificar se existe Person convidada
         if (!$user) {
-            $contact = Contact::where('contact', $request->email)
+            $contact = Contact::where('value', $request->email)
                 ->where('type_contact_id', function ($query) {
                     $query->select('id')
                         ->from('type_contacts')
